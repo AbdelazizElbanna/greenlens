@@ -1,0 +1,19 @@
+# GreenLens: Plant Pathology Diagnosis & Decision Support
+# Core Deep Learning & Scientific Computing
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.2.0
+
+# Visualization & Image Processing
+matplotlib>=3.7.0
+seaborn>=0.12.0
+pillow>=9.5.0
+
+# Presentation & Reporting
+python-pptx>=1.0.0
+
+# Interactive Notebook Environment
+jupyterlab>=4.0.0
+ipykernel>=6.0.0
