@@ -29,6 +29,7 @@
 9. [Project Artifacts & Codebase Walkthrough](#9-project-artifacts--codebase-walkthrough)
 10. [Limitations, Environmental Impact & Future Roadmap](#10-limitations-environmental-impact--future-roadmap)
 11. [References & Citations](#11-references--citations)
+12. [Repository & Source Code Availability](#12-repository--source-code-availability)
 
 ---
 
@@ -333,3 +334,20 @@ The GreenLens codebase is structured for complete reproducibility and modular ex
 3. **Howard, A. G., et al.** (2017). *MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications*. arXiv preprint arXiv:1704.04861.
 4. **Agrios, G. N.** (2005). *Plant Pathology* (5th Edition). Academic Press, San Diego.
 5. **Food and Agriculture Organization (FAO)** (2021). *The Impact of Disasters and Crises on Agriculture and Food Security*. Rome, Italy.
+
+---
+
+## 12. Repository & Source Code Availability
+
+All source code, executed exploratory data analysis notebooks, deep learning training pipelines, serialized model checkpoints, presentation decks, and high-resolution figures for the GreenLens project are openly hosted and maintained on GitHub:
+
+- **Official GitHub Repository:** [https://github.com/AbdelazizElbanna/greenlens](https://github.com/AbdelazizElbanna/greenlens)
+- **Clone via HTTPS:**
+  ```bash
+  git clone https://github.com/AbdelazizElbanna/greenlens.git
+  ```
+- **Clone via SSH:**
+  ```bash
+  git clone git@github.com:AbdelazizElbanna/greenlens.git
+  ```
+
