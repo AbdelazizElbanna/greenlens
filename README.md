@@ -43,6 +43,7 @@ greenlens/
 │   └── greenlens_mobilenetv2_best.pth                # Serialized PyTorch state dict of best model (8.8 MB)
 │
 ├── reports/
+│   ├── project_documentation.md               # In-depth technical, algorithmic, and agronomic project report
 │   └── presentation/
 │       ├── greenlens_presentation.pptx        # Academic presentation (PowerPoint format, 16:9 widescreen)
 │       ├── greenlens_presentation.pdf         # Academic presentation (PDF format, publication-ready)
@@ -95,6 +96,30 @@ To guarantee zero data contamination across experimental stages, a stratified pa
 
 ## Methodology & Algorithmic Architecture
 
+![GreenLens End-to-End System Architecture](reports/presentation/figures/architecture_pipeline.png)
+
+```mermaid
+graph TD
+    subgraph DataPipeline["1. Ingestion & Preprocessing"]
+        A["Input Plant Image<br/>256x256 RGB"] --> B["Stochastic Augmentation<br/>Flips, Rotations +/-20 deg, Color Jitter"]
+        B --> C["Standardization<br/>Resize 224x224, ImageNet Norm"]
+    end
+
+    subgraph ModelArch["2. Deep Learning Backbone (MobileNetV2)"]
+        C --> D["Initial Standard Conv<br/>3x3, Stride 2 (3 to 32ch)"]
+        D --> E["17 Inverted Residual Blocks<br/>Depthwise Separable Convolutions & Linear Bottlenecks"]
+        E --> F["Global Average Pooling<br/>Spatial Reduction 7x7 to 1x1x1280"]
+        F --> G["Classification Head<br/>Dropout 0.3, Dense Layer to 15 Classes"]
+    end
+
+    subgraph DecisionEngine["3. Agronomic Decision & Recommendation"]
+        G --> H{"Confidence Filter<br/>Threshold >= 0.65"}
+        H -- "High Confidence" --> I["Pathology Classification & Top-3 Ranking"]
+        H -- "Low Confidence" --> J["Uncertainty Alert / Retake Prompt"]
+        I --> K["Clinical Action Plan<br/>Organic, Targeted Chemical & Cultural Controls"]
+    end
+```
+
 ### 1. Data Augmentation & Normalization Pipeline
 To prevent overfitting on laboratory backgrounds and enhance real-world invariance, the input pipeline applies:
 - Random horizontal and vertical reflections ($p = 0.5$).
@@ -143,10 +168,11 @@ GreenLens extends beyond basic categorization by linking model predictions to a 
 
 ---
 
-## Academic Presentation Deliverables
+## Academic Presentation & Project Deliverables
 
-The project includes a 7-slide academic presentation matching the GreenLens visual identity:
+The project includes an in-depth technical report and a 7-slide academic presentation matching the GreenLens visual identity:
 
+- **Comprehensive Technical Report:** [project_documentation.md](file:///home/ae/ME/study/College/3rd-Year/sem1/Intro-to-Algorithms/projects/greenlens/reports/project_documentation.md)
 - **PowerPoint Presentation:** [greenlens_presentation.pptx](file:///home/ae/ME/study/College/3rd-Year/sem1/Intro-to-Algorithms/projects/greenlens/reports/presentation/greenlens_presentation.pptx)
 - **PDF Document:** [greenlens_presentation.pdf](file:///home/ae/ME/study/College/3rd-Year/sem1/Intro-to-Algorithms/projects/greenlens/reports/presentation/greenlens_presentation.pdf)
 - **High-Resolution Figures:** [reports/presentation/figures/](file:///home/ae/ME/study/College/3rd-Year/sem1/Intro-to-Algorithms/projects/greenlens/reports/presentation/figures/)

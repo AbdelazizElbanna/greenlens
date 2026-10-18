@@ -109,28 +109,28 @@ p3.font.color.rgb = COLOR_TEXT_MUTED
 p3.space_after = Pt(36)
 
 # Metadata Card
-meta_card = add_card(s1, left_margin, Inches(4.8), Inches(6.0), Inches(1.9), bg_color=COLOR_CARD_BG, border_color=COLOR_CARD_BORDER)
-meta_box = s1.shapes.add_textbox(left_margin + Inches(0.2), Inches(4.9), Inches(5.6), Inches(1.7))
+meta_card = add_card(s1, left_margin, Inches(4.6), Inches(6.0), Inches(2.25), bg_color=COLOR_CARD_BG, border_color=COLOR_CARD_BORDER)
+meta_box = s1.shapes.add_textbox(left_margin + Inches(0.2), Inches(4.7), Inches(5.6), Inches(2.05))
 tf_m = meta_box.text_frame
 tf_m.word_wrap = True
 
 m_p1 = tf_m.paragraphs[0]
 m_p1.text = "Author / Presenter:  Abdelaziz Ahmed Elbanna"
-m_p1.font.size = Pt(13)
+m_p1.font.size = Pt(12.5)
 m_p1.font.bold = True
 m_p1.font.color.rgb = COLOR_PRIMARY
-m_p1.space_after = Pt(6)
+m_p1.space_after = Pt(4)
 
 m_p2 = tf_m.add_paragraph()
 m_p2.text = "Team:  TerraGreen"
-m_p2.font.size = Pt(12)
+m_p2.font.size = Pt(11.5)
 m_p2.font.bold = True
 m_p2.font.color.rgb = COLOR_SECONDARY
-m_p2.space_after = Pt(6)
+m_p2.space_after = Pt(4)
 
 m_p3 = tf_m.add_paragraph()
 m_p3.text = "Supervisor:  Dr. Fatma Talaat"
-m_p3.font.size = Pt(12)
+m_p3.font.size = Pt(11.5)
 m_p3.font.color.rgb = COLOR_TEXT_DARK
 m_p3.space_after = Pt(4)
 
@@ -138,6 +138,21 @@ m_p4 = tf_m.add_paragraph()
 m_p4.text = "Course:  Introduction to Algorithms (Year 3, Semester 1)"
 m_p4.font.size = Pt(11)
 m_p4.font.color.rgb = COLOR_TEXT_MUTED
+m_p4.space_after = Pt(5)
+
+m_p5 = tf_m.add_paragraph()
+r_label = m_p5.add_run()
+r_label.text = "Repository:  "
+r_label.font.size = Pt(10.5)
+r_label.font.bold = True
+r_label.font.color.rgb = COLOR_TEXT_DARK
+
+r_link = m_p5.add_run()
+r_link.text = "https://github.com/AbdelazizElbanna/greenlens"
+r_link.font.size = Pt(10)
+r_link.font.bold = True
+r_link.font.color.rgb = COLOR_SECONDARY
+r_link.hyperlink.address = "https://github.com/AbdelazizElbanna/greenlens"
 
 # Right Column: Visual Graphic
 if (FIG_DIR / "title_cover.png").exists():
